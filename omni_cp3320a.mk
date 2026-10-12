@@ -15,8 +15,10 @@
 #
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
+$(call inherit-product, vendor/omni/config/common.mk)
+
 PRODUCT_DEVICE := cp3320a
 PRODUCT_NAME := omni_cp3320a
-PRODUCT_BRAND := coolpad
-PRODUCT_MODEL := Coolpad 3320A
-PRODUCT_MANUFACTURER := coolpad
+PRODUCT_BRAND := Coolpad
+PRODUCT_MODEL := 3320A
+PRODUCT_MANUFACTURER := Yulong

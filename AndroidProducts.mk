@@ -14,6 +14,4 @@
 # limitations under the License.
 #
 
-LOCAL_PATH := device/coolpad/cp3320a/
-
-PRODUCT_MAKEFILES := $(LOCAL_PATH)/omni_cp3320a.mk
+PRODUCT_MAKEFILES := $(LOCAL_DIR)/omni_cp3320a.mk

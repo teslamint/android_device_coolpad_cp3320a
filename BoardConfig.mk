@@ -16,20 +16,34 @@
 
 LOCAL_PATH := device/coolpad/cp3320a
 
-TARGET_BOARD_PLATFORM := cp3320a
-TARGET_BOOTLOADER_BOARD_NAME := cp3320a
+TARGET_ARCH := arm
+TARGET_ARCH_VARIANT := armv7-a-neon
+TARGET_CPU_VARIANT := cortex-a7
+TARGET_CPU_ABI := armeabi-v7a
+TARGET_CPU_ABI2 := armeabi
+TARGET_BOARD_PLATFORM := msm8909
+TARGET_NO_BOOTLOADER := true
+TARGET_NO_RADIOIMAGE := true
 
-# Recovery
-TARGET_USERIMAGES_USE_EXT4 := true
+TARGET_PREBUILT_KERNEL := $(LOCAL_PATH)/prebuilt/kernel
+BOARD_KERNEL_BASE := 0x80000000
+BOARD_KERNEL_PAGESIZE := 2048
+BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x01000000 --second_offset 0x00f00000 --tags_offset 0x00000100 --dt $(LOCAL_PATH)/prebuilt/dt.img
+BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x3F ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1 earlyprintk androidboot.selinux=permissive
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 16777216
-BOARD_FLASH_BLOCK_SIZE := 0
-BOARD_HAS_NO_REAL_SDCARD := true
-BOARD_SUPPRESS_SECURE_ERASE := true
-BOARD_HAS_NO_MISC_PARTITION := true
-BOARD_RECOVERY_SWIPE := true
-BOARD_USES_MMCUTILS := true
-BOARD_SUPPRESS_EMMC_WIPE := true
+BOARD_FLASH_BLOCK_SIZE := 131072
+TARGET_USERIMAGES_USE_EXT4 := true
+TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/recovery.fstab
+
+TW_THEME := portrait_mdpi
 TW_INPUT_BLACKLIST := "hbtp_vm"
-include $(LOCAL_PATH)/kernel.mk
-include device/generic/twrpbuilder/BoardConfig32.mk
+TW_IGNORE_MAJOR_AXIS_0 := true
+TW_BRIGHTNESS_PATH := /sys/class/leds/lcd-backlight/brightness
+RECOVERY_GRAPHICS_FORCE_USE_LINELENGTH := true
+TW_EXCLUDE_MTP := true
+TW_EXTRA_LANGUAGES := false
+TW_EXCLUDE_TWRPAPP := true
+TW_EXCLUDE_SUPERSU := true
+TW_NO_EXFAT := true
+TW_NO_USB_STORAGE := true
 
