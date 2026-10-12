@@ -4,7 +4,7 @@ Date: 2026-10-12
 
 ## Status
 
-Accepted
+Superseded by [ADR 0002](0002-retain-verified-stock-build-inputs.md)
 
 ## Context
 

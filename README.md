@@ -26,23 +26,26 @@ git clone https://github.com/teslamint/android_device_coolpad_cp3320a \
   device/coolpad/cp3320a
 ```
 
-## Prepare local Stock inputs
+## Stock inputs
 
-The current branch does not include a Stock kernel, QCDT, or recovery image.
-The inherited upstream history still contains its original 2019 binary inputs.
-Removing that history would break the GitHub fork relationship.
-Obtain an exact-model Stock recovery image from your own device or archive.
+The repository includes the upstream Stock kernel and QCDT build inputs.
+They match the inputs used by the live-tested image:
 
-Run the extractor outside the device-tree directory:
+- `kernel`: `21851bee493e95c8b0aa94f1e2eb7ca920552794b25db56aff1016f592cf2c3e`
+- `dt.img`: `e543d6c7cc697db1e7ad9cd79f5eb2f5939f53e31ae899a9354a589b9f16bc4d`
+
+To compare them with an exact-model Stock recovery, run the extractor outside
+the device-tree directory:
 
 ```sh
 python3 device/coolpad/cp3320a/tools/prepare_twrp_inputs.py \
   stock-recovery.img /tmp/cp3320a-prepared
-cp /tmp/cp3320a-prepared/kernel device/coolpad/cp3320a/prebuilt/kernel
-cp /tmp/cp3320a-prepared/dt.img device/coolpad/cp3320a/prebuilt/dt.img
+cmp device/coolpad/cp3320a/kernel /tmp/cp3320a-prepared/kernel
+cmp device/coolpad/cp3320a/dt.img /tmp/cp3320a-prepared/dt.img
 ```
 
 The extractor rejects an image that differs from the CP3320A boot contract.
+The comparison succeeds only when both extracted inputs match byte for byte.
 
 The live-tested image had SHA-256
 `527c74eabf71f44427e429fca5176a588c5958bfd5543d3c2f950976a4044757`.

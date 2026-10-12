@@ -7,18 +7,17 @@ It targets only the Coolpad Rouge 3320A, device name `cp3320a`.
 
 ## Required inputs
 
-The current branch does not include a kernel, device tree, or recovery image.
-The inherited fork history still contains the original 2019 binary inputs.
-The builder must supply an exact-model Stock recovery image.
+The current branch includes the live-tested Stock kernel and QCDT inputs:
 
-`tools/prepare_twrp_inputs.py` extracts these local build inputs:
+- `kernel` with SHA-256
+  `21851bee493e95c8b0aa94f1e2eb7ca920552794b25db56aff1016f592cf2c3e`;
+- `dt.img` with SHA-256
+  `e543d6c7cc697db1e7ad9cd79f5eb2f5939f53e31ae899a9354a589b9f16bc4d`.
 
-- `prebuilt/kernel`
-- `prebuilt/dt.img`
-- an extraction receipt
-
-The extractor rejects incompatible headers, QCDT metadata, and partition sizes.
-The build must preserve the extracted kernel and QCDT bytes.
+`tools/prepare_twrp_inputs.py` extracts independent copies and a receipt from
+an exact-model Stock recovery image. The extractor rejects incompatible
+headers, QCDT metadata, and partition sizes. Builders can compare these copies
+with the committed inputs before building.
 
 ## Build interfaces
 
