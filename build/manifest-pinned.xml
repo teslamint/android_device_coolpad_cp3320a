@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <remote name="LineageOS" fetch="https://github.com/LineageOS" review="https://review.lineageos.org"/>
+  <remote name="TeamWin" fetch="https://github.com/TeamWin" review="https://gerrit.twrp.me"/>
+  <remote name="aosp" fetch="https://android.googlesource.com" review="android-review.googlesource.com"/>
+  <remote name="github" fetch="https://github.com/"/>
+  <remote name="omnirom" fetch="https://github.com/omnirom" review="gerrit.omnirom.org"/>
+  <remote name="xda" fetch=".."/>
+  
+  <default remote="aosp" revision="refs/tags/android-5.1.1_r28" sync-j="4" sync-c="true"/>
+  
+  <project name="android" remote="omnirom" revision="175f24d8823811909c45f58f8bd63debb3f888eb" upstream="android-5.1" dest-branch="android-5.1"/>
+  <project name="android_bionic" path="bionic" remote="omnirom" revision="71d89647140e3ba0e0d850c47c279c3c3b6392e7" upstream="android-5.1" dest-branch="android-5.1" groups="pdk"/>
+  <project name="android_bootable_recovery" path="bootable/recovery" remote="TeamWin" revision="90e5d9559065cfa8b2b9a5dbb1c5cb7a88f034fa" groups="local::recovery-pin"/>
+  <project name="android_build" path="build" remote="omnirom" revision="46a2a7e00ea779439d35ad8f6d2b9885c8b58b2c" upstream="android-5.1" dest-branch="android-5.1" groups="pdk,tradefed">
+    <copyfile src="core/root.mk" dest="Makefile"/>
+  </project>
+  <project name="android_external_bash" path="external/bash" remote="LineageOS" revision="bbc8b4849e0921dc4d9742359ca37f527712eccd" upstream="cm-12.1" dest-branch="cm-12.1"/>
+  <project name="android_external_busybox" path="external/busybox" remote="omnirom" revision="da7973ef468adc088c190c980fa19e6654a90e31" upstream="android-5.1" dest-branch="android-5.1"/>
+  <project name="android_external_e2fsprogs" path="external/e2fsprogs" remote="omnirom" revision="4fdaa178fdef01862f2d9641bd5e139a65b7a480" upstream="android-5.1" dest-branch="android-5.1" groups="pdk"/>
+  <project name="android_external_f2fs-tools" path="external/f2fs-tools" remote="omnirom" revision="2b8dcef8ae8aaedafab243a4d572aeebcce406e6" upstream="android-5.1" dest-branch="android-5.1" groups="pdk"/>
+  <project name="android_external_jpeg" path="external/jpeg" remote="omnirom" revision="c9048dcb5b78536b1ee245d37a26c968d90ab48e" upstream="android-5.1" dest-branch="android-5.1" groups="pdk-cw-fs"/>
+  <project name="android_external_libncurses" path="external/libncurses" remote="LineageOS" revision="c1bcd6dd9af6865867a3d6716e4c1a45021a90e5" upstream="cm-12.1" dest-branch="cm-12.1"/>
+  <project name="android_external_libpng" path="external/libpng" remote="omnirom" revision="4cc8da87d20b21ddca453ea2b993214e5adabe0c" upstream="android-5.1" dest-branch="android-5.1"/>
+  <project name="android_external_llvm" path="external/llvm" remote="omnirom" revision="6a6442daf5ad48e0dd2aa20762ad094d4d72f91d" upstream="android-5.1" dest-branch="android-5.1" groups="pdk"/>
+  <project name="android_external_nano" path="external/nano" remote="LineageOS" revision="1bef4f9b1f96cc6d9397616d56d522af55c8c592" upstream="cm-12.1" dest-branch="cm-12.1"/>
+  <project name="android_external_ntfs-3g" path="external/ntfs-3g" remote="omnirom" revision="3f13c3fa8ba9a41f55d1f9eabdb61342722a0faf" upstream="android-5.1" dest-branch="android-5.1"/>
+  <project name="android_external_openssh" path="external/openssh" remote="LineageOS" revision="b82300f4fa6917298a137817afbbd674a066e5da" upstream="cm-12.1" dest-branch="cm-12.1"/>
+  <project name="android_external_python3" path="external/python3" remote="TeamWin" revision="05317e1d07758bc18cccd1e7e81d0339e9a2b6d2" upstream="android-9.0" dest-branch="android-9.0"/>
+  <project name="android_external_sepolicy" path="external/sepolicy" remote="TeamWin" revision="54a6ae89d5d83a85e59c63985e3d77e3735d6405" upstream="android-5.1" dest-branch="android-5.1" groups="pdk"/>
+  <project name="android_frameworks_native" path="frameworks/native" remote="omnirom" revision="e9787d5440e398c8bf81f7a5925e762da1fe0374" upstream="android-5.1" dest-branch="android-5.1" groups="pdk"/>
+  <project name="android_hardware_libhardware" path="hardware/libhardware" remote="omnirom" revision="5c6280c34654082901a6b115ad1211dacccdc19c" upstream="android-5.1" dest-branch="android-5.1" groups="pdk"/>
+  <project name="android_hardware_qcom_keymaster" path="hardware/qcom/keymaster" remote="omnirom" revision="3f0d62e1b0a76b664e518c5b7cb7b1e2be52deb0" upstream="android-5.1" dest-branch="android-5.1" groups="qcom"/>
+  <project name="android_libcore" path="libcore" remote="omnirom" revision="fde3c1bfdb2fac943bd44473c7953be4f9c873cb" upstream="android-5.1" dest-branch="android-5.1" groups="pdk"/>
+  <project name="android_prebuilts_gcc_linux-x86_arm_arm-eabi-4.4.3" path="prebuilts/gcc/linux-x86/arm/arm-eabi-4.4.3" remote="omnirom" revision="7a6cceac3ed7680ed51cb5f97f63ec7ebfacb164" upstream="android-5.1" dest-branch="android-5.1" groups="arm,linux,pdk"/>
+  <project name="android_prebuilts_gcc_linux-x86_arm_arm-eabi-4.7" path="prebuilts/gcc/linux-x86/arm/arm-eabi-4.7" remote="omnirom" revision="8b880805d454664b3eed11d0f053cdeafa1ff06e" upstream="android-5.1" dest-branch="android-5.1"/>
+  <project name="android_system_core" path="system/core" remote="TeamWin" revision="17f2196d953478ffe24eca06d99da4e7ca439fb9" upstream="android-5.1" dest-branch="android-5.1" groups="pdk"/>
+  <project name="android_system_extras" path="system/extras" remote="omnirom" revision="01b76b05d132243ce8373fb57c711fdd335dffa6" upstream="android-5.1" dest-branch="android-5.1" groups="pdk"/>
+  <project name="android_system_netd" path="system/netd" remote="omnirom" revision="b11a518c0d44e1955f585ade8d450a5a165a0e94" upstream="android-5.1" dest-branch="android-5.1" groups="pdk"/>
+  <project name="android_vendor_omni" path="vendor/omni" remote="omnirom" revision="0b07c15a54606d7cb3c8618c37d4a571f0dca93b" upstream="android-5.1" dest-branch="android-5.1"/>
+  <project name="platform/external/bison" path="external/bison" revision="c2418b886165add7f5a31fc5609f0ce2d004a90e" upstream="refs/tags/android-5.1.1_r28" dest-branch="refs/tags/android-5.1.1_r28" groups="pdk"/>
+  <project name="platform/external/bouncycastle" path="external/bouncycastle" revision="2a64eecc02ffb5b991fb5c367eab777b1325eef8" upstream="refs/tags/android-5.1.1_r28" dest-branch="refs/tags/android-5.1.1_r28" groups="pdk"/>
+  <project name="platform/external/bzip2" path="external/bzip2" revision="1cb636bd8e9e5cdfd5d5b2909a122f6e80db62de" upstream="refs/tags/android-5.1.1_r28" dest-branch="refs/tags/android-5.1.1_r28" groups="pdk"/>
+  <project name="platform/external/checkpolicy" path="external/checkpolicy" revision="5d95bb5a518b2786c19b9cc1e1e4c15169a42a26" upstream="refs/tags/android-5.1.1_r28" dest-branch="refs/tags/android-5.1.1_r28" groups="pdk"/>
+  <project name="platform/external/compiler-rt" path="external/compiler-rt" revision="11f8ffed1d651dcafcb4f85ffc561a9eac13f844" upstream="refs/tags/android-5.1.1_r28" dest-branch="refs/tags/android-5.1.1_r28" groups="pdk"/>
+  <project name="platform/external/elfutils" path="external/elfutils" revision="e8f2790fbf876f4a996d56ad0ddddfa40025a92a" upstream="refs/tags/android-5.1.1_r28" dest-branch="refs/tags/android-5.1.1_r28" groups="pdk"/>
+  <project name="platform/external/freetype" path="external/freetype" revision="9c745321260bb728ab1cd1c8fd5f075854b2ad49" upstream="refs/tags/android-5.1.1_r28" dest-branch="refs/tags/android-5.1.1_r28" groups="pdk"/>
+  <project name="platform/external/gcc-demangle" path="external/gcc-demangle" revision="9241386b62c353302c2f9eccda0672685b252b4d" upstream="refs/tags/android-5.1.1_r28" dest-branch="refs/tags/android-5.1.1_r28" groups="pdk"/>
+  <project name="platform/external/jemalloc" path="external/jemalloc" revision="fb795867f0b3aa28bbdf177e1026f3e3408e0338" upstream="refs/tags/android-5.1.1_r28" dest-branch="refs/tags/android-5.1.1_r28" groups="pdk"/>
+  <project name="platform/external/libcxx" path="external/libcxx" revision="4b8f3fcd3196ba291f82321cd5d1bd688b52d2ba" upstream="refs/tags/android-5.1.1_r28" dest-branch="refs/tags/android-5.1.1_r28" groups="pdk"/>
+  <project name="platform/external/libcxxabi" path="external/libcxxabi" revision="605f03260ce43ec564cd0ec80ea21514e82eeeb3" upstream="refs/tags/android-5.1.1_r28" dest-branch="refs/tags/android-5.1.1_r28" groups="pdk"/>
+  <project name="platform/external/libnl" path="external/libnl" revision="f6c30c401b0a9608bbf8c88a4408f3d94b8f7e51" upstream="refs/tags/android-5.1.1_r28" dest-branch="refs/tags/android-5.1.1_r28" groups="pdk"/>
+  <project name="platform/external/libseccomp-helper" path="external/libseccomp-helper" revision="e87019943a8b5a7cd0880910f671c37b240d5754" upstream="refs/tags/android-5.1.1_r28" dest-branch="refs/tags/android-5.1.1_r28" groups="pdk-cw-fs"/>
+  <project name="platform/external/libselinux" path="external/libselinux" revision="ed841ace2bdfabe2053e2a30fb323da36b70b516" upstream="refs/tags/android-5.1.1_r28" dest-branch="refs/tags/android-5.1.1_r28" groups="pdk"/>
+  <project name="platform/external/libsepol" path="external/libsepol" revision="bd76d1c1f853604b622e08fff34376be574378d4" upstream="refs/tags/android-5.1.1_r28" dest-branch="refs/tags/android-5.1.1_r28" groups="pdk"/>
+  <project name="platform/external/libunwind" path="external/libunwind" revision="965cd6944d33fd7a2ef7c4f4cb8f3c8e420d93cc" upstream="refs/tags/android-5.1.1_r28" dest-branch="refs/tags/android-5.1.1_r28" groups="pdk"/>
+  <project name="platform/external/lzma" path="external/lzma" revision="b473eaa2840cccf2fef15d53f00bccf92c41b615" upstream="refs/tags/android-5.1.1_r28" dest-branch="refs/tags/android-5.1.1_r28" groups="pdk"/>
+  <project name="platform/external/mksh" path="external/mksh" revision="ae04631768fefc45c2d18865ec88872853421a52" upstream="refs/tags/android-5.1.1_r28" dest-branch="refs/tags/android-5.1.1_r28" groups="pdk"/>
+  <project name="platform/external/openssl" path="external/openssl" revision="87955877681c4c832ee3df0bdba67d3e2e3d49f2" upstream="refs/tags/android-5.1.1_r28" dest-branch="refs/tags/android-5.1.1_r28" groups="pdk"/>
+  <project name="platform/external/pcre" path="external/pcre" revision="34b2219fd2dff277a57941355db2279f56aeacf2" upstream="refs/tags/android-5.1.1_r28" dest-branch="refs/tags/android-5.1.1_r28" groups="pdk-cw-fs"/>
+  <project name="platform/external/safe-iop" path="external/safe-iop" revision="aa0725fb1da35e47676b6da30009322eb5ed59be" upstream="refs/tags/android-5.1.1_r28" dest-branch="refs/tags/android-5.1.1_r28" groups="pdk"/>
+  <project name="platform/external/stlport" path="external/stlport" revision="d0388a36b67665be55162388337055ee21a43206" upstream="refs/tags/android-5.1.1_r28" dest-branch="refs/tags/android-5.1.1_r28" groups="pdk"/>
+  <project name="platform/external/zlib" path="external/zlib" revision="8d977782c1cfe9d75cc9a464439c2ff1e27e1665" upstream="refs/tags/android-5.1.1_r28" dest-branch="refs/tags/android-5.1.1_r28" groups="pdk"/>
+  <project name="platform/hardware/qcom/msm8960" path="hardware/qcom/msm8960" revision="c25a431842a26b5756b58a9d4a42c776e0457ba2" upstream="refs/tags/android-5.1.1_r28" dest-branch="refs/tags/android-5.1.1_r28" groups="qcom_msm8960"/>
+  <project name="platform/libnativehelper" path="libnativehelper" revision="a75fb2a636ceafac9ddfb580af614e5ef0edf977" upstream="refs/tags/android-5.1.1_r28" dest-branch="refs/tags/android-5.1.1_r28" groups="pdk"/>
+  <project name="platform/prebuilts/clang/linux-x86/3.1" path="prebuilts/clang/linux-x86/3.1" revision="e95b4ce22c825da44d14299e1190ea39a5260bde" upstream="refs/tags/android-5.1.1_r28" dest-branch="refs/tags/android-5.1.1_r28" groups="linux,pdk"/>
+  <project name="platform/prebuilts/clang/linux-x86/3.2" path="prebuilts/clang/linux-x86/3.2" revision="471afab478649078ad7c75ec6b252481a59e19b8" upstream="refs/tags/android-5.1.1_r28" dest-branch="refs/tags/android-5.1.1_r28" groups="linux,pdk"/>
+  <project name="platform/prebuilts/clang/linux-x86/arm/3.3" path="prebuilts/clang/linux-x86/arm/3.3" revision="2f6d2db9e2af3507d132cf5d286a42fe1d47f7bc" upstream="refs/tags/android-5.1.1_r28" dest-branch="refs/tags/android-5.1.1_r28" groups="arm,linux,pdk-cw-fs"/>
+  <project name="platform/prebuilts/clang/linux-x86/host/3.4" path="prebuilts/clang/linux-x86/host/3.4" revision="fae26a039f79d780ddedcad07f164d9e6c05fc87" upstream="refs/tags/android-5.1.1_r28" dest-branch="refs/tags/android-5.1.1_r28" groups="linux,pdk"/>
+  <project name="platform/prebuilts/clang/linux-x86/host/3.5" path="prebuilts/clang/linux-x86/host/3.5" revision="95068e08807b06f8b95bfc88cde1a55e96a8db26" upstream="refs/tags/android-5.1.1_r28" dest-branch="refs/tags/android-5.1.1_r28" groups="linux,pdk"/>
+  <project name="platform/prebuilts/clang/linux-x86/mips/3.3" path="prebuilts/clang/linux-x86/mips/3.3" revision="51f8e2760628588fe268438d612d942c30d13fb2" upstream="refs/tags/android-5.1.1_r28" dest-branch="refs/tags/android-5.1.1_r28" groups="linux,mips,pdk-cw-fs"/>
+  <project name="platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.8" path="prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.8" revision="7334f0a7a872700d0aaf00bea75917c077c45530" upstream="refs/tags/android-5.1.1_r28" dest-branch="refs/tags/android-5.1.1_r28" groups="arm,linux,pdk"/>
+  <project name="platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9" path="prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9" revision="d4d54ede13f6f76c77137c35a87fa5f0436eded2" upstream="refs/tags/android-5.1.1_r28" dest-branch="refs/tags/android-5.1.1_r28" groups="arm,linux,pdk"/>
+  <project name="platform/prebuilts/gcc/linux-x86/arm/arm-eabi-4.8" path="prebuilts/gcc/linux-x86/arm/arm-eabi-4.8" revision="26e93f6af47f7bd3a9beb5c102a5f45e19bfa38a" upstream="refs/tags/android-5.1.1_r28" dest-branch="refs/tags/android-5.1.1_r28" groups="arm,linux,pdk"/>
+  <project name="platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.8" path="prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.8" revision="d9735fc81434f2af2c44d86ca57740c673c8d9bc" upstream="refs/tags/android-5.1.1_r28" dest-branch="refs/tags/android-5.1.1_r28" groups="arm,linux,pdk"/>
+  <project name="platform/prebuilts/gcc/linux-x86/mips/mips64el-linux-android-4.9" path="prebuilts/gcc/linux-x86/mips/mips64el-linux-android-4.9" revision="1bcdba4340d481672341f85aa2b3056dec5c280a" upstream="refs/tags/android-5.1.1_r28" dest-branch="refs/tags/android-5.1.1_r28" groups="linux,mips,pdk"/>
+  <project name="platform/prebuilts/gcc/linux-x86/x86/x86_64-linux-android-4.8" path="prebuilts/gcc/linux-x86/x86/x86_64-linux-android-4.8" revision="e08fa7e57a573a9baa5ccd8d4b8d73cc871f9b48" upstream="refs/tags/android-5.1.1_r28" dest-branch="refs/tags/android-5.1.1_r28" groups="linux,pdk,x86"/>
+  <project name="platform/prebuilts/gcc/linux-x86/x86/x86_64-linux-android-4.9" path="prebuilts/gcc/linux-x86/x86/x86_64-linux-android-4.9" revision="69cb72cbf200634691d59c916724c2dd5dc13b76" upstream="refs/tags/android-5.1.1_r28" dest-branch="refs/tags/android-5.1.1_r28" groups="linux,pdk,x86"/>
+  <project name="platform/prebuilts/misc" path="prebuilts/misc" revision="fd3085ff803baf8cd947d518773ea3057704d86f" upstream="refs/tags/android-5.1.1_r28" dest-branch="refs/tags/android-5.1.1_r28" groups="pdk,tradefed"/>
+  <project name="platform/prebuilts/ndk" path="prebuilts/ndk" revision="28f83b276a2e9183ad842321875d476e1ad82cb1" upstream="refs/tags/android-5.1.1_r28" dest-branch="refs/tags/android-5.1.1_r28" groups="pdk"/>
+  <project name="platform/prebuilts/sdk" path="prebuilts/sdk" revision="9fff1a5bbdd30a3a27b394343181dca9e76460dc" upstream="refs/tags/android-5.1.1_r28" dest-branch="refs/tags/android-5.1.1_r28" groups="pdk,tradefed"/>
+</manifest>

@@ -53,7 +53,11 @@ This digest is a reference result, not a substitute for local verification.
 
 ## Build
 
-Apply the compatibility patch from the Android source-tree root:
+[build/README.md](build/README.md) describes a containerized build.
+It syncs the pinned source tree, injects this checkout, and builds the image with Docker or Podman.
+It needs no local Android source tree.
+
+To build in an existing source tree, apply the compatibility patch from the Android source-tree root:
 
 ```sh
 git -C bootable/recovery apply \
